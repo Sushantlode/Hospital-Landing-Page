@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CareWell Hospital</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+    :root {
+      --primary-blue: #177eb5;
+      --primary-green: #2d6a4f;
+      --secondary: #52b788;
+      --light-gray: #f8f9fa;
+      --dark-gray: #343a40;
+      --text-dark: #212529;
+      --gradient-main: linear-gradient(135deg, #005295, #47cae1);
+      --gradient-btn: linear-gradient(135deg, #6f2ab4, #7777ed);
+      --white: #ffffff;
+      --spacing: 24px;
+       --primary-color: #177eb5;
+  --background-light: #ffffff;
+  --background-dark: #121212;
+  --text-light: #ffffff;
+  --text-dark: #212529;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--text-dark);
+      background: var(--light-gray);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    section {
+      padding: 60px 20px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 0 15px;
+    }
+
+    /* Buttons */
+    .btn {
+      background: var(--gradient-btn);
+      color: #fff;
+      padding: 14px 28px;
+      text-decoration: none;
+          border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: 0.3s ease;
+      margin-top: 16px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    .btn:hover {
+      transform: scale(1.05);
+      opacity: 0.9;
+    }
+
+    /* Navbar */
+ 
+/* Navbar Base */
+nav {
+  background: var(--primary-color);
+  color: var(--text-light);
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+nav .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+nav .logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Nav Menu */
+#nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+#nav-menu li a {
+  color: var(--text-light);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+#nav-menu li a:hover {
+  color: #ffe66d;
+}
+
+/* Icons */
+.icons {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.icons span {
+  font-size: 22px;
+  cursor: pointer;
+  color: var(--text-light);
+}
+
+/* Responsive */
+#menu-toggle {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  #nav-menu {
+    display: none;
+    flex-direction: column;
+    background: var(--primary-color);
+    position: absolute;
+    top: 65px;
+    right: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    width: 200px;
+  }
+
+  nav.active #nav-menu {
+    display: flex;
+  }
+
+  #menu-toggle {
+    display: block;
+  }
+}
+
+    /* Hero */
+    .hero {
+      background: url('https://wallpaperaccess.com/full/136995.jpg') center/cover no-repeat;
+      color: #fff;
+    
+    }
+    .hero .overlay {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 100px 20px;
+      text-align: center;
+        border-radius: 8px;
+    }
+    .hero h1 {
+      font-size: 2.8em;
+      background:linear-gradient(to left, #80aefc, #14ffb5);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    .hero p {
+      font-size: 1.2em;
+      max-width: 600px;
+      
+      margin: 20px auto;
+    }
+
+    /* Services */
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2em;
+      margin-top: var(--spacing);
+    }
+    .service-card {
+      background: #ffffff;
+      padding: 25px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      transition: 0.3s;
+    }
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .service-card h3 {
+      color: var(--primary-green);
+      margin-bottom: 12px;
+    }
+    .service-card p {
+      font-size: 0.95rem;
+    }
+
+    /* Doctor Search */
+    .doc-search {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 28px;
+    }
+    .doc-search input,
+    .doc-search select {
+      padding: 12px;
+      flex: 1;
+      min-width: 140px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      transition: border-color 0.3s;
+    }
+    .doc-search input:focus,
+    .doc-search select:focus {
+      border-color: var(--primary-blue);
+      outline: none;
+    }
+    .doc-search button {
+      background: var(--gradient-btn);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 24px;
+      font-weight: 600;
+      transition: 0.3s ease;
+    }
+    .doc-search button:hover {
+      opacity: 0.9;
+    }
+
+    /* Testimonials */
+    .testimonials {
+      background: var(--gradient-main);
+      color: #fff;
+      padding: 60px 20px;
+    }
+    .testimonials .container {
+      display: grid;
+      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    .testimonial {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 12px;
+    }
+    .testimonial p {
+      font-style: italic;
+      font-size: 0.95rem;
+    }
+
+    /* Accordion */
+    .accordion {
+      max-width: 800px;
+      margin: 40px auto 0;
+    }
+    .accordion-item {
+      border-bottom: 1px solid #ddd;
+      margin-bottom: 10px;
+    }
+    .accordion-item button {
+      background: none;
+      border: none;
+      width: 100%;
+      text-align: left;
+      padding: 18px;
+      font-size: 1.1em;
+      font-weight: 600;
+      color: var(--primary-blue);
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .accordion-item button:hover {
+      background: rgba(0, 0, 0, 0.1);
+    }
+    .accordion-item .content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      padding: 0 18px;
+      font-size: 0.95em;
+      color: #333;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--dark-gray);
+      color: #fff;
+      padding: 50px 20px;
+      text-align: center;
+    }
+    footer a {
+      color: var(--secondary);
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+      }
+      .hero h1 {
+        font-size: 2em;
+      }
+      .doc-search {
+        flex-direction: column;
+      }
+      .btn {
+        width: 100%;
+      }
+    }
+
+    /* Appointment Section Styling */
+#appointment {
+  background: linear-gradient(135deg, #e0f7fa, #f1f8e9);
+  padding: 50px 20px;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 12px;
+  margin: 40px auto;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+#appointment h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #2d6a4f;
+}
+
+/* Form Styling */
+#appointment form {
+  max-width: 600px;
+  margin: auto;
+  display: grid;
+  gap: 15px;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+#appointment input,
+#appointment select,
+#appointment textarea {
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  width: 100%;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+#appointment input:focus,
+#appointment select:focus,
+#appointment textarea:focus {
+  border-color: #177eb5;
+  box-shadow: 0 0 5px rgba(23, 126, 181, 0.3);
+  outline: none;
+}
+
+#appointment textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Button Styling */
+#appointment .btn {
+  background-color: #177eb5;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#appointment .btn:hover {
+  background-color: #0d5a85;
+}
+body.dark {
+  background: #121212;
+  color: #f1f1f1;
+}
+body.dark nav {
+  background: #1e1e1e;
+}
+body.dark nav a {
+  color: #f1f1f1;
+}
+body.dark .service-card,
+body.dark #appointment form,
+body.dark .testimonial,
+body.dark article {
+  background: #1f1f1f;
+  color: #f1f1f1;
+}
+body.dark footer {
+  background: #0f0f0f;
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="container">
+      <div class="logo">CareWell Hospital</div>
+      <ul id="nav-menu">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#doctors">Find Doctor</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="icons">
+        <span id="menu-toggle">&#9776;</span>
+        <span id="dark-mode-toggle">&#9790;</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="overlay container">
+      <div style="text-align:center;">
+        <h1>Quality Care. Trusted Doctors. Always here for you.</h1>
+        <p>Your health is our priority—24/7 emergency, diagnostics & inpatient care.</p>
+        <a href="#appointment" class="btn">Book Appointment</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="container">
+    <h2 style="text-align:center;">Our Core Services</h2>
+    <div class="services">
+      <div class="service-card">
+        🏥<h3>Emergency Care</h3><p>Available 24/7 with the latest trauma support.</p>
+      </div>
+      <div class="service-card">
+        🧠<h3>Neurology</h3><p>Advanced diagnosis & treatment for brain & nerve disorders.</p>
+      </div>
+      <div class="service-card">
+        👶<h3>Pediatrics</h3><p>Comprehensive child care from infancy through adolescence.</p>
+      </div>
+      <div class="service-card">
+        ❤️<h3>Cardiology</h3><p>Heart specialists and state-of-the-art cardiac facilities.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Doctor Search -->
+  <section id="doctors" class="container">
+    <h2 style="text-align:center;">Find a Doctor</h2>
+    <div class="doc-search">
+      <input type="text" placeholder="Doctor name or specialty">
+      <select>
+        <option>All Departments</option>
+        <option>Cardiology</option>
+        <option>Neurology</option>
+      </select>
+      <select>
+        <option>Select Insurance</option>
+        <option>Insurance A</option>
+        <option>Insurance B</option>
+      </select>
+      <button>Search</button>
+    </div>
+  </section>
+
+  <!-- Appointment -->
+  <section id="appointment" class="container">
+    <h2>Make an Appointment</h2>
+    <form style="max-width:600px;margin:auto; display:grid; gap:10px;">
+      <input type="text" placeholder="Full Name" required>
+      <input type="email" placeholder="Email" required>
+      <input type="tel" placeholder="Phone" required>
+      <select required>
+        <option selected disabled>Department</option>
+        <option>Emergency</option>
+        <option>Cardiology</option>
+        <option>Neurology</option>
+      </select>
+      <input type="date" required>
+      <textarea placeholder="Additional details"></textarea>
+      <button type="submit" class="btn">Submit</button>
+    </form>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials" class="testimonials">
+    <div class="container">
+      <h2 style="text-align:center;">What Our Patients Say</h2>
+      <div class="testimonial">
+        <p>“The doctors and staff were incredibly supportive during my stay. Highly recommend!”</p>
+        <h4>— Priya Sharma</h4>
+      </div>
+      <div class="testimonial">
+        <p>“Quick emergency response and excellent post-care explained clearly.”</p>
+        <h4>— Rohan Singh</h4>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Accordion -->
+  <section class="container">
+    <h2 style="text-align:center;">FAQs</h2>
+    <div class="accordion">
+      <div class="accordion-item">
+        <button>What insurances do you accept?</button>
+        <div class="content"><p>We accept most national and private insurances. Please check your plan.</p></div>
+      </div>
+      <div class="accordion-item">
+        <button>Are walk-ins allowed?</button>
+        <div class="content"><p>Yes—our ER operates 24/7. For specialist visits, appointments are best.</p></div>
+      </div>
+      <div class="accordion-item">
+        <button>How can I get my test results?</button>
+        <div class="content"><p>Results can be accessed via our secure patient portal or emailed to you.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Latest News / Blog -->
+  <section class="container">
+    <h2 style="text-align:center;">Latest News & Health Tips</h2>
+    <div style="display:grid; gap:20px; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); margin-top:20px;">
+      <article style="border:1px solid #e9ecef; padding:20px; border-radius:8px;">
+        <h3>Importance of Regular Heart Check‑Ups</h3>
+        <p>Stay healthy—discover when and why you should schedule your annual cardiac exam.</p>
+        <br>
+        <a href="#" class="btn" style="font-size:0.9em;">Read More</a>
+      </article>
+      <article style="border:1px solid #e9ecef; padding:20px; border-radius:8px;">
+        <h3>Tips to Protect Your Kids This Monsoon</h3>
+        <p>Beat seasonal infections with these expert pediatric care tips.</p>
+        <br>
+        <a href="#" class="btn" style="font-size:0.9em;">Read More</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <footer id="contact">
+    <div class="container">
+      <div style="display:flex; flex-wrap:wrap; gap:40px;">
+        <div style="flex:1; min-width:200px;">
+          <h3>CareWell Hospital</h3>
+          <p>123 Shahu Street, Pune, Maharashtra, India<br>
+          Phone: +91‑9067937021<br>
+          Email: info@carewellhospital.in</p>
+        </div>
+        <div style="flex:1; min-width:200px;">
+          <h3>Quick Links</h3>
+          <p><a href="#services">Services</a><br>
+          <a href="#appointment">Book Appointment</a><br>
+          <a href="#testimonials">Testimonials</a><br>
+          <a href="#contact">Contact Us</a></p>
+        </div>
+        <div style="flex:1; min-width:200px;">
+          <h3>Subscribe to Newsletter</h3>
+          <form style="display:flex; flex-direction:column; gap:10px;">
+            <input type="email" placeholder="Your email" required>
+            <button type="submit" class="btn">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <p style="text-align:center; margin-top:20px;">&copy; 2025 CareWell Hospital. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    document.querySelectorAll('.accordion-item button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const content = btn.nextElementSibling;
+        const open = content.style.maxHeight && content.style.maxHeight !== '0px';
+        document.querySelectorAll('.accordion-item .content').forEach(c => c.style.maxHeight = null);
+        content.style.maxHeight = open ? null : content.scrollHeight + 'px';
+      });
+    });
+       // Toggle nav on mobile
+  document.getElementById('menu-toggle').addEventListener('click', () => {
+    document.querySelector('nav').classList.toggle('active');
+  });
+
+  // Toggle dark mode
+  document.getElementById('dark-mode-toggle').addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    const icon = document.getElementById('dark-mode-toggle');
+    icon.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+  }); </script>
+
+</body>
+</html>
